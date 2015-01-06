@@ -1,13 +1,15 @@
-require 'spec_helper'
 require 'simplecov'
 require 'erb'
+require 'rspec/temp_dir'
 
 describe 'MarkdownFormatter' do
+  include_context "uses temp dir"
+
   let(:formatter) do
     SimpleCov::Formatter::MarkdownFormatter.stub(:output_path).and_return(report_path)
     SimpleCov::Formatter::MarkdownFormatter.new
   end
-  let(:report_path) { File.join(File.dirname(__FILE__), '../tmp/', 'report.md') }
+  let(:report_path) { File.join(temp_dir_path, 'report.md') }
   let(:expect_report) do
     root_directory = File.dirname(__FILE__)
     erb_script = File.open(File.join(File.dirname(__FILE__), 'fixtures/report.md.erb')).read
@@ -25,10 +27,6 @@ describe 'MarkdownFormatter' do
   end
 
   describe '#result' do
-    before do
-      directory = File.join(File.dirname(__FILE__), '../tmp')
-      Dir.mkdir(directory, 0755) unless Dir.exist?(directory)
-    end
     it 'format by markdown' do
       formatter.format(result)
       actual_report = File.open(report_path).read
