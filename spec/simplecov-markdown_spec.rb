@@ -25,6 +25,10 @@ describe 'MarkdownFormatter' do
   end
 
   describe '#result' do
+    before do
+      directory = File.join(File.dirname(__FILE__), '../tmp')
+      Dir.mkdir(directory, 0755) unless Dir.exist?(directory)
+    end
     it 'format by markdown' do
       formatter.format(result)
       actual_report = File.open(report_path).read
