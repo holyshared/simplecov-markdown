@@ -31,7 +31,8 @@ class SimpleCov::Formatter::MarkdownFormatter
           file.filename,
           file.covered_percent.to_s + "%",
           file.covered_lines.size,
-          file.missed_lines.size
+          file.missed_lines.size,
+          file.lines_of_code
         )
       end
       @table_writer.destroy!
@@ -47,9 +48,9 @@ class SimpleCov::Formatter::MarkdownFormatter
     attr_reader :report, :columns_headers, :columns_header_aligns
 
     def initialize(report)
-    @report = report
-      @columns_headers = ["File", "Coverage", "Covered", "Missed"]
-      @columns_header_aligns = [:left, :right, :right, :right]
+      @report = report
+      @columns_headers = ["File", "Coverage", "Covered", "Missed", "Total"]
+      @columns_header_aligns = [:left, :right, :right, :right, :right]
     end
 
     def write_header
