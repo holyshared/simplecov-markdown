@@ -2,12 +2,24 @@ PATH
   remote: .
   specs:
     simplecov-markdown (0.1.0)
+      simplecov
 
 GEM
   remote: https://rubygems.org/
   specs:
+    coveralls (0.7.2)
+      multi_json (~> 1.3)
+      rest-client (= 1.6.7)
+      simplecov (>= 0.7)
+      term-ansicolor (= 1.2.2)
+      thor (= 0.18.1)
     diff-lcs (1.2.5)
+    docile (1.1.5)
+    mime-types (2.4.3)
+    multi_json (1.10.1)
     rake (10.4.2)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
     rspec (3.1.0)
       rspec-core (~> 3.1.0)
       rspec-expectations (~> 3.1.0)
@@ -20,12 +32,25 @@ GEM
     rspec-mocks (3.1.3)
       rspec-support (~> 3.1.0)
     rspec-support (3.1.2)
+    rspec-temp_dir (0.0.3)
+      rspec
+    simplecov (0.9.1)
+      docile (~> 1.1.0)
+      multi_json (~> 1.0)
+      simplecov-html (~> 0.8.0)
+    simplecov-html (0.8.0)
+    term-ansicolor (1.2.2)
+      tins (~> 0.8)
+    thor (0.18.1)
+    tins (0.13.2)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  bundler (~> 1.7)
+  bundler (~> 1.0)
+  coveralls
   rake (~> 10.0)
   rspec
+  rspec-temp_dir (~> 0.0.3)
   simplecov-markdown!
