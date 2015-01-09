@@ -6,17 +6,6 @@ class SimpleCov::Formatter::MarkdownFormatter
     report_writer.write_header "Code Coverage Report"
     report_writer.write_result(result)
     report_writer.destroy!
-
-
-#    @report = File.open(SimpleCov::Formatter::MarkdownFormatter.output_path, 'w')
- #   @report.puts "Code Coverage Report"
-  #  @report.puts "======================\n\n"
-   # @report.puts "|File|Coverage|"
-  #  @report.puts "|:--|--:|"
-  #  result.files.each do |file|
-  #    @report.puts "|#{file.filename}|#{file.covered_percent}%|"
-  #  end
-  #  @report.close
   end
   def self.output_path
     File.join(SimpleCov.coverage_path, 'report.md')
@@ -40,17 +29,12 @@ class SimpleCov::Formatter::MarkdownFormatter
       result.files.each do |file|
         @table_writer.write_record(file.filename, file.covered_percent.to_s + "%")
       end
+      @table_writer.destroy!
     end
 
     def destroy!
       @report.close
       @report = nil
-    end
-
-    private
-
-    def writeln(value)
-      @report.puts value + "\n"
     end
   end
 
@@ -64,8 +48,7 @@ class SimpleCov::Formatter::MarkdownFormatter
     end
 
     def write_header
-      @report.puts "|" + @columns_headers.join("|") + "|"
-
+      write_values @columns_headers
       headers = @columns_header_aligns.map do |align|
         case align
           when :left
@@ -76,12 +59,21 @@ class SimpleCov::Formatter::MarkdownFormatter
             "--" 
         end
       end
-      @report.puts "|" + headers.join("|") + "|"
+      write_values headers
     end
 
     def write_record(*args)
+      write_values args
+    end
+
+    def destroy!
+      @report = nil
+    end
+
+    private
+
+    def write_values(*args)
       @report.puts "|" + args.join("|") + "|"
     end
   end
-
 end
