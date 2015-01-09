@@ -6,7 +6,7 @@ describe 'MarkdownFormatter' do
   include_context "uses temp dir"
 
   let(:formatter) do
-    SimpleCov::Formatter::MarkdownFormatter.stub(:output_path).and_return(report_path)
+    allow(SimpleCov::Formatter::MarkdownFormatter).to receive(:output_path).and_return(report_path)
     SimpleCov::Formatter::MarkdownFormatter.new
   end
   let(:report_path) { File.join(temp_dir_path, 'report.md') }
