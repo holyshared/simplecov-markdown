@@ -21,7 +21,7 @@ class SimpleCov::Formatter::MarkdownFormatter
 
     def write_header(title)
       @report.puts title
-      @report.puts "======================\n\n"
+      @report.puts "=" * 20 + "\n\n"
     end
 
     def write_result(result)
