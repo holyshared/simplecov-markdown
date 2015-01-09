@@ -27,7 +27,12 @@ class SimpleCov::Formatter::MarkdownFormatter
     def write_result(result)
       @table_writer.write_header
       result.files.each do |file|
-        @table_writer.write_record(file.filename, file.covered_percent.to_s + "%")
+        @table_writer.write_record(
+          file.filename,
+          file.covered_percent.to_s + "%",
+          file.covered_lines.size,
+          file.missed_lines.size
+        )
       end
       @table_writer.destroy!
     end
@@ -42,9 +47,9 @@ class SimpleCov::Formatter::MarkdownFormatter
     attr_reader :report, :columns_headers, :columns_header_aligns
 
     def initialize(report)
-      @report = report
-      @columns_headers = ["File", "Coverage"]
-      @columns_header_aligns = [:left, :right]
+    @report = report
+      @columns_headers = ["File", "Coverage", "Covered", "Missed"]
+      @columns_header_aligns = [:left, :right, :right, :right]
     end
 
     def write_header
