@@ -4,6 +4,7 @@ class SimpleCov::Formatter::MarkdownFormatter
   def format(result)
     report_writer = ReportWriter.new(SimpleCov::Formatter::MarkdownFormatter.output_path)
     report_writer.write_header "Code Coverage Report"
+    report_writer.write_description(result)
     report_writer.write_result(result)
     report_writer.destroy!
   end
@@ -21,7 +22,14 @@ class SimpleCov::Formatter::MarkdownFormatter
 
     def write_header(title)
       @report.puts title
-      @report.puts "=" * 20 + "\n\n"
+      @report.puts "=" * 20
+      @report.puts "\n"
+    end
+
+    def write_description(result)
+      @report.puts "Project name: " + SimpleCov.project_name
+      @report.puts "Created at: " + result.created_at.to_s
+      @report.puts "\n"
     end
 
     def write_result(result)
