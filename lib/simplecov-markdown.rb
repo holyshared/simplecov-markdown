@@ -29,7 +29,7 @@ class SimpleCov::Formatter::MarkdownFormatter
       result.files.each do |file|
         @table_writer.write_record(
           file.filename,
-          file.covered_percent.to_s + "%",
+          file.covered_percent.round(2).to_s + "%",
           file.covered_lines.size,
           file.missed_lines.size,
           file.lines_of_code
