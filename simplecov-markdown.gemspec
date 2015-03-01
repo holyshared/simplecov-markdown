@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["holy.shared.design@gmail.com"]
   spec.summary       = "Markdown formatter for simplecov"
   spec.description   = "Markdown formatter for simplecov"
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/holyshared/simplecov-markdown"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
