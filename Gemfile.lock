@@ -24,19 +24,19 @@ GEM
     rest-client (1.7.3)
       mime-types (>= 1.16, < 3.0)
       netrc (~> 0.7)
-    rspec (3.2.0)
-      rspec-core (~> 3.2.0)
-      rspec-expectations (~> 3.2.0)
-      rspec-mocks (~> 3.2.0)
-    rspec-core (3.2.1)
-      rspec-support (~> 3.2.0)
-    rspec-expectations (3.2.0)
+    rspec (3.3.0)
+      rspec-core (~> 3.3.0)
+      rspec-expectations (~> 3.3.0)
+      rspec-mocks (~> 3.3.0)
+    rspec-core (3.3.1)
+      rspec-support (~> 3.3.0)
+    rspec-expectations (3.3.0)
       diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.2.0)
-    rspec-mocks (3.2.1)
+      rspec-support (~> 3.3.0)
+    rspec-mocks (3.3.1)
       diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.2.0)
-    rspec-support (3.2.2)
+      rspec-support (~> 3.3.0)
+    rspec-support (3.3.0)
     rspec-temp_dir (0.0.3)
       rspec
     simplecov (0.9.2)
@@ -64,3 +64,6 @@ DEPENDENCIES
   rspec-temp_dir (~> 0.0.3)
   simplecov-console
   simplecov-markdown!
+
+BUNDLED WITH
+   1.10.4
