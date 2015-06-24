@@ -6,12 +6,14 @@ describe 'MarkdownFormatter' do
   include_context "uses temp dir"
 
   let(:formatter) do
-    SimpleCov::Formatter::MarkdownFormatter.stub(:output_path).and_return(report_path)
+    allow(SimpleCov::Formatter::MarkdownFormatter).to receive(:output_path).and_return(report_path)
     SimpleCov::Formatter::MarkdownFormatter.new
   end
   let(:report_path) { File.join(temp_dir_path, 'report.md') }
   let(:expect_report) do
     root_directory = File.dirname(__FILE__)
+    project_name = SimpleCov.project_name
+    created_at = result.created_at
     erb_script = File.open(File.join(File.dirname(__FILE__), 'fixtures/report.md.erb')).read
     ERB.new(erb_script).result(binding)
   end

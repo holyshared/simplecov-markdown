@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["holy.shared.design@gmail.com"]
   spec.summary       = "Markdown formatter for simplecov"
   spec.description   = "Markdown formatter for simplecov"
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/holyshared/simplecov-markdown"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
@@ -25,4 +25,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec"
   spec.add_development_dependency "coveralls"
+  spec.add_development_dependency "simplecov-console"
 end
