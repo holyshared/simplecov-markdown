@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    simplecov-markdown (0.1.7)
+    simplecov-markdown (0.1.8)
       simplecov
 
 GEM
@@ -73,6 +73,3 @@ DEPENDENCIES
   rspec-temp_dir (~> 0.0.3)
   simplecov-console
   simplecov-markdown!
-
-BUNDLED WITH
-   1.10.6
