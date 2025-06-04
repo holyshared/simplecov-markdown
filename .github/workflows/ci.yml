@@ -20,12 +20,12 @@ jobs:
 #          - ruby: 2.3 # works
 #          - ruby: 2.4 # works
 #          - ruby: 2.5 # dies
-#          - ruby: 2.6
-#          - ruby: 2.7
-#          - ruby: 3.1
-          - ruby: 3.2
+#          - ruby: 2.6 # eol
+#          - ruby: 2.7 # eol
+#          - ruby: 3.1 # eol
+#          - ruby: 3.2
 #          - ruby: 3.3
-#          - ruby: 3.4
+          - ruby: 3.4
 
     env: ${{ matrix.env }}
     steps:
