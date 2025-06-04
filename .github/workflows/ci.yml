@@ -1,0 +1,37 @@
+name: RSpec CI
+on:
+  push:
+    branches:
+      - 'main'
+  pull_request:
+    branches:
+      - '*'
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: 'Ruby: ${{ matrix.ruby }}'
+    runs-on: 'ubuntu-latest'
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+#          - ruby: 2.3 # works
+#          - ruby: 2.4 # works
+          - ruby: 2.5 # dies
+#          - ruby: 2.6
+#          - ruby: 2.7
+#          - ruby: 3.3
+#          - ruby: 3.4
+
+    env: ${{ matrix.env }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+          bundler-cache: true
+      - run: bundle install
+      - run: bundle exec rake spec
+        continue-on-error: ${{ matrix.allow_failure || false }}
