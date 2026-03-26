@@ -19,6 +19,6 @@ Usage
 ----------------------------
 
 ```ruby
-require 'simplecov-csv'
+require 'simplecov-markdown'
 SimpleCov.formatter = SimpleCov::Formatter::MarkdownFormatter
 ```
